@@ -3,14 +3,13 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-{% for recipe in recipes %}
 <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
     <h2 class="mb-12 text-2xl text-center">New Recipes</h2>
 
     <div class="grid grid-cols-3 gap-3">
         {% for recipe in recipes %}
         <div>
-            <a href="#">
+            <a href="{% url 'recipe:detail' recipe.id %}">
                 <div>
                     <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" class="rounded-t-xl">
                 </div>
@@ -39,5 +38,4 @@
         {% endfor %}
     </div>
 </div>
-{% endfor %}
 {% endblock %}
