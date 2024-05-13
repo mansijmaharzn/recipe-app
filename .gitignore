@@ -1,0 +1,10 @@
+# virtual environment
+.venv
+
+
+# database
+*.sqlite3
+
+
+# misc
+.DS_Store
