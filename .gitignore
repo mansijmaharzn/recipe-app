@@ -2,6 +2,10 @@
 .venv
 
 
+# medias
+media/
+
+
 # database
 *.sqlite3
 
