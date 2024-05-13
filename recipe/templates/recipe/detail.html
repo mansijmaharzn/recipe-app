@@ -13,7 +13,7 @@
         <p class="text-gray-500"><strong>By: {{ recipe.created_by.username }}</strong></p>
 
         <p class="test-gray-700">
-            <strong class="text-gray500">Description:</strong>
+            <strong class="text-gray500">Ingredients:</strong>
             <br />
             {{ recipe.ingredients }}
         </p>
@@ -41,7 +41,7 @@
     <div class="grid grid-cols-3 gap-3">
         {% for recipe in related_recipes %}
         <div>
-            <a href="#">
+            <a href="{% url 'recipe:detail' recipe.id %}">
                 <div>
                     <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" class="rounded-t-xl">
                 </div>
