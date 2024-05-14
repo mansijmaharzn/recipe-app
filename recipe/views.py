@@ -35,12 +35,3 @@ def new(request):
             'form': form,
             'title': 'New Recipe'
         })
-
-
-@login_required
-def dashboard(request):
-    recipes = Recipe.objects.filter(created_by=request.user)
-
-    return render(request, 'recipe/dashboard.html', {
-        'recipes': recipes
-    })
