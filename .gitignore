@@ -12,3 +12,7 @@ media/
 
 # misc
 .DS_Store
+
+
+# caches
+__pycache__
