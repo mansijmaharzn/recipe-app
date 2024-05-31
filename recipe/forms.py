@@ -28,3 +28,24 @@ class NewRecipeForm(forms.ModelForm):
                 'class': INPUT_CLASSES
             }),
         }
+
+
+class EditRecipeForm(forms.ModelForm):
+    class Meta:
+        model = Recipe
+        fields = ['name', 'ingredients', 'steps', 'category']
+
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': INPUT_CLASSES
+            }),
+            'ingredients': forms.Textarea(attrs={
+                'class': INPUT_CLASSES
+            }),
+            'steps': forms.Textarea(attrs={
+                'class': INPUT_CLASSES
+            }),
+            'category': forms.Select(attrs={
+                'class': INPUT_CLASSES
+            }),
+        }

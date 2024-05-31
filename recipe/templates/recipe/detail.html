@@ -25,13 +25,10 @@
         </p>
 
         {% if request.user == recipe.created_by %}
-        <a href="#"
+        <a href="{% url 'recipe:edit' recipe.id %}"
             class="inline-block mt-6 mx-3 px-6 py-3 text-lg font-semibold bg-green-700 text-white rounded-xl">Edit</a>
-        <a href="#"
+        <a href="{% url 'recipe:delete' recipe.id %}"
             class="inline-block mt-6 mx-3 px-6 py-3 text-lg font-semibold bg-red-500 text-white rounded-xl">Delete</a>
-        {% else %}
-        <a href="{% url 'dashboard:add_to_wishlist' recipe.id %}"
-            class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white hover:bg-teal-700 rounded-xl">Add to Wishlist</a>
         {% endif %}
     </div>
 </div>
