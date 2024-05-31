@@ -16,3 +16,7 @@ media/
 
 # caches
 __pycache__
+
+
+# visual studio code
+.vscode

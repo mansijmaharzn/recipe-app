@@ -1,8 +1,27 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
-from .models import Recipe
+from .models import Recipe, Category
 from .forms import NewRecipeForm, EditRecipeForm
+
+
+def recipes(request):
+    query = request.GET.get('query', '')
+    category_id = request.GET.get('category', 0) 
+    categories = Category.objects.all()
+    recipes = Recipe.objects.filter()
+
+    if category_id:
+        recipes = recipes.filter(category_id=category_id)
+
+    if query:
+        recipes = recipes.filter(Q(name__icontains=query) | Q(ingredients__icontains=query))
+
+    return render(request, 'recipe/recipes.html', {
+        'categories': categories,
+        'recipes': recipes
+    })
 
 
 def detail(request, pk):
